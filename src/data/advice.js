@@ -1,0 +1,10 @@
+export const advice=[
+{id:'specific',title:'把打算变成具体动作',section:'第4节第1条',domain:'时间',cost:'钱0 · 时间少 · 毅力否',grade:'A',ratio:'极高',text:'写明什么时候、在哪里、遇到什么就做什么。只为你真想做的目标安排。',action:'晚饭后，到楼下轻松走一会儿',url:'https://doi.org/10.1016/S0065-2601(06)38002-1'},
+{id:'environment',title:'把零食收进不显眼的位置',section:'第4节第10条',domain:'时间',cost:'钱0 · 时间少 · 毅力否',grade:'B',ratio:'高',text:'你提到看见零食容易忍不住。试着收远一点，减少随手拿的机会。相关食物研究确定性低，不保证一定少吃。',action:'整理桌面，把零食收远',url:'https://doi.org/10.1002/14651858.CD012573.pub3'},
+{id:'habit',title:'漏一天后，继续就好',section:'第4节第12条',domain:'时间',cost:'钱0 · 时间少 · 毅力是',grade:'B',ratio:'一般',text:'习惯需要反复练习，没有统一的21天期限。研究针对简单动作，不能承诺复杂目标的完成天数。',action:'今天做一件小事，不补罚昨天',url:'https://doi.org/10.1002/ejsp.674'},
+{id:'subscription',title:'检查闲置的 AI 订阅',section:'第5节第1条',domain:'金钱',cost:'钱0 · 时间少 · 毅力否',grade:'C',ratio:'高',text:'列出仍在使用的服务与续费日。需要的订阅可以保留；请在对应平台自行管理，本应用不能替你取消。',action:'检查一次自动续费列表',url:'https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2025/art_4b47c79b8d994a42bba4835997688faa.html'},
+{id:'gym',title:'健身房先体验，再决定长期付费',section:'第5节第21条',domain:'金钱',cost:'钱少 · 时间少 · 毅力否',grade:'B',ratio:'一般',text:'你尚未开始规律运动。比较当地短期、按次和年卡价格，用实际出勤核算费用。原研究来自美国，不照搬其价格。',action:'了解一次本地按次体验价格',url:'https://doi.org/10.1257/aer.96.3.694'},
+{id:'cooling',title:'大额非必需购买，明天再看',section:'第5节第23条',domain:'金钱',cost:'钱0 · 时间少 · 毅力些',grade:'C',ratio:'一般',text:'24小时冷静期是经验做法，不承诺省钱比例。饿了需要吃饭不适用此规则。',action:'回看昨天的愿望清单',url:'https://www.gov.cn/zhengce/zhengceku/2020-11/03/content_5557118.htm'},
+{id:'sleep',title:'稳定睡觉和起床时间',section:'第2节第13条',domain:'健康',cost:'钱0 · 时间多 · 毅力些',grade:'A',ratio:'一般',text:'保留23:00—07:00目标，不刻意压缩睡眠。规律性部分为观察性证据，正文备注分级B，不能推算你个人的风险下降。',action:'睡前准备，尽量按计划休息',url:'https://doi.org/10.1093/sleep/zsad253'},
+{id:'walk',title:'从短时活动逐步增加',section:'第2节第11条',domain:'健康',cost:'钱0 · 时间多 · 毅力些',grade:'A',ratio:'一般',text:'默认按分钟记，不要求买手表或凑一万步。标题中的步数与时长是替代计量，不作为第一天强制要求。',action:'按自己的感受轻松散步',url:'https://doi.org/10.1016/S2468-2667(21)00302-9'},
+{id:'strength',title:'逐渐加入力量活动',section:'第2节第16条',domain:'健康',cost:'钱0 · 时间中 · 毅力些',grade:'A',ratio:'一般',text:'先建立运动习惯，再安排适合基础的力量活动。书中的30—60分钟不是上限，也不直接作为训练处方。',action:'记录运动感受，为下一次做准备',url:'https://doi.org/10.1136/bjsports-2021-105061'}];

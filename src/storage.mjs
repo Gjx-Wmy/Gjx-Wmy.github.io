@@ -1,0 +1,9 @@
+import {validateState} from './domain/state.mjs';
+let dbPromise;
+function db(){return dbPromise??=new Promise((resolve,reject)=>{const req=indexedDB.open('riri-life',1);req.onupgradeneeded=()=>{req.result.createObjectStore('state');req.result.createObjectStore('photos');};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(Error('无法打开本机存储，请检查浏览器权限'));req.onblocked=()=>reject(Error('请关闭其他日日页面再重试'));});}
+async function operation(store,mode,run){const d=await db();return new Promise((resolve,reject)=>{const tx=d.transaction(store,mode),req=run(tx.objectStore(store));tx.oncomplete=()=>resolve(req?.result);tx.onerror=()=>reject(Error('数据保存失败，请导出备份并检查存储空间'));tx.onabort=()=>reject(Error('存储事务未完成，请重试'));});}
+export async function loadState(){const s=await operation('state','readonly',x=>x.get('main'));return s?validateState(s):null;}
+export async function saveState(s){validateState(s);const d=await db();return new Promise((resolve,reject)=>{const tx=d.transaction('state','readwrite'),store=tx.objectStore('state'),get=store.get('main');let conflict=false,saved;get.onsuccess=()=>{if((get.result?.revision??0)!==s.revision){conflict=true;tx.abort();return;}saved={...s,revision:s.revision+1};store.put(saved,'main');};tx.oncomplete=()=>resolve(saved);tx.onerror=()=>reject(Error('数据保存失败，请检查存储空间'));tx.onabort=()=>reject(Error(conflict?'其他页面已更新记录，本页面将重新读取；请核对表单后再保存。':'存储事务未完成，请重试'));});}
+export async function putPhoto(blob){if(!['image/jpeg','image/png','image/webp'].includes(blob.type)||blob.size>8*1024*1024)throw Error('照片需为 JPG、PNG 或 WebP，且不超过 8 MB');const id=crypto.randomUUID();await operation('photos','readwrite',x=>x.put(blob,id));return id;}
+export const readPhoto=id=>operation('photos','readonly',x=>x.get(id));
+export const removePhoto=id=>operation('photos','readwrite',x=>x.delete(id));
